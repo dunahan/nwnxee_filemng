@@ -1,3 +1,4 @@
+//uff which should i include? which one can be deleted? more research is needed!
 #include "Ini.hpp"
 
 #include "API/Version.hpp"
@@ -15,6 +16,11 @@
 #include "Services/Hooks/Hooks.hpp"
 
 #include "ViewPtr.hpp"
+#include "nwnxlite.h"
+#include "mysql.h"
+#include "string.h"
+#include "assert.h"
+#include "string.h"
 
 using namespace NWNXLib;
 using namespace NWNXLib::API;
