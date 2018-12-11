@@ -44,6 +44,7 @@ NWNX_PLUGIN_ENTRY Plugin* PluginLoad(Plugin::CreateParams params)
 
 namespace Ini {
 
+// following is needed but how do i do that?
 Player::Player(const Plugin::CreateParams& params)
     : Plugin(params)
 {
@@ -59,7 +60,19 @@ Player::Player(const Plugin::CreateParams& params)
 /*    GetServices()->m_hooks->RequestSharedHook
         <Functions::CNWSMessage__HandlePlayerToServerInputCancelGuiTimingEvent,
             int32_t, CNWSMessage*, CNWSPlayer*>(&HandlePlayerToServerInputCancelGuiTimingEventHook);
-// do i need that? */
+// do i need that?
+
+// following another sample from player plugin, how to get a bic file? would this be an entrypoint for me to get the ini-file?
+    ArgumentStack Player::GetBicFileName(ArgumentStack&& args)
+    {
+        ArgumentStack stack;
+        if (auto *pPlayer = player(args))
+        {
+            Services::Events::InsertArgument(stack, std::string(pPlayer->m_resFileName.GetResRef(), pPlayer->m_resFileName.GetLength()));
+        }
+        return stack;
+    }
+*/
 }
 
 /*copied from old c++ source as help?! old style, how to get that work with new nwnx:ee
